@@ -7,6 +7,7 @@ class CreateJ2BsRequests < ActiveRecord::Migration
       t.decimal :price
       t.string :description
       t.string :status
+      t.string :callback_url
 
       t.timestamps
     end

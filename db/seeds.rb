@@ -10,9 +10,9 @@ J2BsRequest.destroy_all
 
 req1 = J2BsRequest.create(:order_id => '111',:customer_id => '222', 
   :store_id => '333' ,:price => 45020.17, 
-  :description => "$5000 Amazon Gift Card, Panasonic 103IN Fhd, Three Wolf Moon Shirt ", :status => 'pending' )
+  :description => "$5000 Amazon Gift Card, Panasonic 103IN Fhd, Three Wolf Moon Shirt ", :status => 'pending', :callback_url => "something" )
   
 req2 = J2BsRequest.create(:order_id => '444',:customer_id => '222', 
   :store_id => '333',:price => 83.56, 
   :description => "Three Wolf Moon Shirt, Green Lantern Shot Glass, Automatic Nerf Gun",
-  :status => 'pending' )
+  :status => 'pending', :callback_url => "something" )

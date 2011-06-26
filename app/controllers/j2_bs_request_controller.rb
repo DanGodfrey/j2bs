@@ -20,8 +20,8 @@ class J2BsRequestController < ApplicationController
      @requests = J2BsRequest.where(:customer_id => params[:customer_id],:status => "pending")
      
      respond_to do |format|
-       format.xml {render :xml => @requests}
-       format.json {render :json => @requests}
+       format.xml {render_for_api :public_request, :xml => @requests}
+       format.json {render_for_api :public_request, :json => @requests}
      end
   end
   

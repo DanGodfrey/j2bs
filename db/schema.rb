@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110626205655) do
+ActiveRecord::Schema.define(:version => 20110626224253) do
 
   create_table "j2_bs_requests", :force => true do |t|
     t.string   "order_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20110626205655) do
     t.decimal  "price"
     t.string   "description"
     t.string   "status"
+    t.string   "callback_url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
