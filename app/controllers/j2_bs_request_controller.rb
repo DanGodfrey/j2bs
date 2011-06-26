@@ -8,8 +8,8 @@ class J2BsRequestController < ApplicationController
     newReq.customer_id = params[:customer_id]
     newReq.order_id = params[:order_id]
     newReq.store_id = params[:store_id]
-    newReq.price = params[:price]
-    newReq.description = CGI.unescape(params[:description])
+    newReq.price = CGI.unescape(Base64.decode64(params[:price]))
+    newReq.description = CGI.unescape(Base64.decode64(params[:description]))
     newReq.callback_url = CGI.unescape(Base64.decode64(params[:callback]))
     newReq.status = "pending"
     
