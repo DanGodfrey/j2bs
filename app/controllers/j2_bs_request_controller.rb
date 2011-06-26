@@ -1,3 +1,4 @@
+require 'cgi'
 class J2BsRequestController < ApplicationController
   
   def create
@@ -6,9 +7,8 @@ class J2BsRequestController < ApplicationController
     newReq.customer_id = params[:customer_id]
     newReq.order_id = params[:order_id]
     newReq.store_id = params[:store_id]
-    newReq.title = params[:title]
     newReq.price = params[:price]
-    newReq.description = params[:description]
+    newReq.description = CGI.unescape(params[:description])
     newReq.status = "pending"
     
     newReq.save
