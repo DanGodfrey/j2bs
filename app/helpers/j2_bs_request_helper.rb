@@ -1,0 +1,2 @@
+module J2BsRequestHelper
+end
