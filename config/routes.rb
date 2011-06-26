@@ -3,7 +3,7 @@ J2bs::Application.routes.draw do
   match 'j2bsrequest/accept/:order_id' => 'J2BsRequest#accept'
   match 'j2bsrequest/reject/:order_id' => 'J2BsRequest#reject'
   match 'j2bsrequest/show/:customer_id' => 'J2BsRequest#show'
-  match 'j2bsrequest/new/:store_id/:customer_id/:order_id/:price/:description' => 'J2BsRequest#create'
+  match 'j2bsrequest/new/:store_id/:customer_id/:order_id/:price/:description/:callback' => 'J2BsRequest#create'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

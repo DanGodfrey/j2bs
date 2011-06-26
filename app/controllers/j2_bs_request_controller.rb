@@ -1,4 +1,5 @@
 require 'cgi'
+require "base64"
 class J2BsRequestController < ApplicationController
   
   def create
@@ -9,6 +10,7 @@ class J2BsRequestController < ApplicationController
     newReq.store_id = params[:store_id]
     newReq.price = params[:price]
     newReq.description = CGI.unescape(params[:description])
+    newReq.callback_url = CGI.unescape(Base64.decode64(params[:callback]))
     newReq.status = "pending"
     
     newReq.save
@@ -20,8 +22,8 @@ class J2BsRequestController < ApplicationController
      @requests = J2BsRequest.where(:customer_id => params[:customer_id],:status => "pending")
      
      respond_to do |format|
-       format.xml {render_for_api :public_request, :xml => @requests}
-       format.json {render_for_api :public_request, :json => @requests}
+       format.xml {render_for_api :public_request, :xml => @requests, :root => :requests}
+       format.json {render_for_api :public_request, :json => @requests, :root => :requests}
      end
   end
   
