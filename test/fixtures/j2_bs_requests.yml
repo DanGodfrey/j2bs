@@ -4,7 +4,6 @@ one:
   order_id: MyString
   customer_id: MyString
   store_id: MyString
-  title: MyString
   price: 9.99
   description: MyString
   status: MyString
@@ -13,7 +12,6 @@ two:
   order_id: MyString
   customer_id: MyString
   store_id: MyString
-  title: MyString
   price: 9.99
   description: MyString
   status: MyString

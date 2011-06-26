@@ -4,7 +4,6 @@ class CreateJ2BsRequests < ActiveRecord::Migration
       t.string :order_id
       t.string :customer_id
       t.string :store_id
-      t.string :title
       t.decimal :price
       t.string :description
       t.string :status

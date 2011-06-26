@@ -10,13 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110626063205) do
+ActiveRecord::Schema.define(:version => 20110626205655) do
 
   create_table "j2_bs_requests", :force => true do |t|
     t.string   "order_id"
     t.string   "customer_id"
     t.string   "store_id"
-    t.string   "title"
     t.decimal  "price"
     t.string   "description"
     t.string   "status"
