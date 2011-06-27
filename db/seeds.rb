@@ -16,3 +16,8 @@ req2 = J2BsRequest.create(:order_id => '444',:customer_id => '222',
   :store_id => '333',:price => 83.56, 
   :description => "Three Wolf Moon Shirt, Green Lantern Shot Glass, Automatic Nerf Gun",
   :status => 'pending', :callback_url => "http://www.amazon.com" )
+  
+req3 = J2BsRequest.create(:order_id => '555',:customer_id => '222', 
+  :store_id => '334',:price => 2500.56, 
+  :description => "GIUSEPPE ZANOTTI, ALEXANDER MCQUEEN NOIR FAITHFUL BOOT",
+  :status => 'pending', :callback_url => "http://www.zappos.com" )
