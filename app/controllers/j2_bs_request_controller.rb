@@ -17,7 +17,7 @@ class J2BsRequestController < ApplicationController
     
     newReq.save
     
-    render :json => newReq.tp_json, :callback => params[:callback]
+    render :json => newReq.to_json, :callback => params[:callback]
     
     
     @message = newReq.order_id + " is pending acceptance"
