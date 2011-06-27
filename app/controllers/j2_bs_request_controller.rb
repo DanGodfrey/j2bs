@@ -35,11 +35,22 @@ class J2BsRequestController < ApplicationController
     request.save
     
     url = request.callback_url
+    
+    if url.include? "?"
+      url = url + "&"
+    else
+      url = url + "?"
+    end
+
+   url = url + "confirm=accept"
+    
     resp = Net::HTTP.get_response(URI.parse(url)) # get_response takes an URI object
 
     data = resp.body
     
     puts data
+    
+    puts url
     
     @message = "Order Accepted"
   end
@@ -50,11 +61,22 @@ class J2BsRequestController < ApplicationController
      request.save
      
      url = request.callback_url
+     
+     if url.include? "?"
+       url = url + "&"
+     else
+       url = url + "?"
+     end
+   
+     url = url + "confirm=reject"
+     
      resp = Net::HTTP.get_response(URI.parse(url)) # get_response takes an URI object
 
      data = resp.body
 
      puts data
+     
+     puts url
      
      @message = "Order Rejected"
    end
