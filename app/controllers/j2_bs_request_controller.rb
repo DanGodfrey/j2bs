@@ -12,10 +12,13 @@ class J2BsRequestController < ApplicationController
     newReq.store_id = params[:store_id]
     newReq.price = CGI.unescape(Base64.decode64(params[:price]))
     newReq.description = CGI.unescape(Base64.decode64(params[:description]))
-    newReq.callback_url = CGI.unescape(Base64.decode64(params[:callback]))
+    newReq.callback_url = CGI.unescape(Base64.decode64(params[:callback_url]))
     newReq.status = "pending"
     
     newReq.save
+    
+    render :json => newReq.tp_json, :callback => params[:callback]
+    
     
     @message = newReq.order_id + " is pending acceptance"
   end
