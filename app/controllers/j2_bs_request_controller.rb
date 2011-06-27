@@ -1,5 +1,7 @@
 require 'cgi'
 require "base64"
+require 'net/http'
+
 class J2BsRequestController < ApplicationController
   
   def create
@@ -31,6 +33,14 @@ class J2BsRequestController < ApplicationController
     request = J2BsRequest.where(:order_id => params[:order_id])[0]
     request.status = "accepted"
     request.save
+    
+    url = request.callback_url
+    resp = Net::HTTP.get_response(URI.parse(url)) # get_response takes an URI object
+
+    data = resp.body
+    
+    puts data
+    
     @message = "Order Accepted"
   end
   
@@ -38,6 +48,14 @@ class J2BsRequestController < ApplicationController
      request = J2BsRequest.where(:order_id => params[:order_id])[0]
      request.status = "rejected"
      request.save
+     
+     url = request.callback_url
+     resp = Net::HTTP.get_response(URI.parse(url)) # get_response takes an URI object
+
+     data = resp.body
+
+     puts data
+     
      @message = "Order Rejected"
    end
 
